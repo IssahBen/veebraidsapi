@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer_name: MyString
+  date: 2025-06-02 09:54:31
+  status: 1
+  service: one
+
+two:
+  customer_name: MyString
+  date: 2025-06-02 09:54:31
+  status: 1
+  service: two
