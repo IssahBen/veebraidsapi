@@ -77,7 +77,8 @@
           <p><strong>Service Booked:</strong> <%= @service %></p>
           <p><strong>Scheduled Date:</strong> <%= @date %></p>
           <p><strong>Email:</strong> <%= @email %></p>
-          <p><strong>Price:</strong> <%= number_to_currency(@price) %></p>
+          <p><strong>Service Type:</strong> <%= @service_type %></p>
+          <p><strong>Price:</strong> <%=  @service_type  === "Home Service" ? number_to_currency(@price + 25) : number_to_currency(@price) %></p>
         </div>
 
         <p style="margin-top: 20px;">

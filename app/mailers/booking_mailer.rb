@@ -6,6 +6,7 @@ class BookingMailer < ApplicationMailer
      @price =  service.price 
      @date = booking.date.to_date
      @email = booking.email
+     @service_type = booking.service_type
      mail(to: @email, subject: "Booking Confirmation")
    end
 
@@ -16,6 +17,7 @@ class BookingMailer < ApplicationMailer
     @date = booking.date.to_date
     @email = booking.email
     @price =  service.price 
+    @service_type = booking.service_type
     mail(to: "benedictissah@gmail.com", subject: "New Booking")
    end
 end

@@ -16,6 +16,7 @@ module Api
           service_id: service.id,
           date: data[:date],
           time: data[:time],
+          service_type: data[:service_type],
           status: :pending
         )
       
@@ -41,7 +42,7 @@ module Api
       private
 
       def booking_params
-        params.require(:booking).permit(:customer_name, :email, :service, :date, :time)
+        params.require(:booking).permit(:customer_name, :email, :service, :date, :time,:service_type)
       end
       
     end
