@@ -37,6 +37,11 @@ module Api
 
         render json: { dates: dates}
       end
+
+      def bookings 
+        bookings = Booking.all 
+        render json: {bookings: serialize_bookings(bookings)}, status: :ok 
+      end
       
 
       private
@@ -45,6 +50,23 @@ module Api
         params.require(:booking).permit(:customer_name, :email, :service, :date, :time,:service_type)
       end
       
+      def serialize_bookings(bookings)
+        items  = []
+        bookings.each do |booking|
+          items << {
+            id: booking.id,
+            name: booking.customer_name,
+            email: booking.email,
+            service: Service.find(booking.service_id).name,
+            date: booking.date.to_date,
+            service_type: booking.service_type,
+            time: booking.time,
+            status: booking.status
+
+          }
+        end
+        return items
+      end
     end
   end
 end

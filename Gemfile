@@ -46,3 +46,9 @@ group :development do
 end
 
 gem 'dotenv-rails'
+
+gem "devise", "~> 4.9"
+
+# Gemfile
+
+gem 'simple_token_authentication', '~> 1.0' # see semver.
