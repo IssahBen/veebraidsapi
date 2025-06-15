@@ -11,6 +11,10 @@ Rails.application.routes.draw do
       get "services", to: "services#index"
       get "bookings", to: "bookings#bookings"
       delete "logout", to: "sessions#destroy"
+      put "booking/:id", to: "bookings#update"
+      put "services/:id", to: "services#update"
+      delete "services/:id", to: "services#destroy"
+      post "services", to: "services#create"
     end
   end
 end

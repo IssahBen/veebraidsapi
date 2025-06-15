@@ -42,6 +42,23 @@ module Api
         bookings = Booking.all 
         render json: {bookings: serialize_bookings(bookings)}, status: :ok 
       end
+
+      def update
+        p params
+        booking = Booking.find(params[:id])
+        if booking.update(status:params[:status])
+          if params[:status] == "cancelled"
+            BookingMailer.booking_cancelled(booking).deliver_now
+            booking.destroy()
+          end 
+
+          render json: { message: "Booking updated successfully", booking: booking }, status: :ok
+        else
+          render json: { error: "Failed to update booking", errors: booking.errors.full_messages }, status: :unprocessable_entity
+        end
+      rescue ActiveRecord::RecordNotFound
+        render json: { error: "Booking not found" }, status: :not_found
+      end
       
 
       private

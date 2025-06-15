@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Booking Cancelled</title>
+    <style>
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f9f9f9;
+        color: #2c3e50;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 600px;
+        margin: 40px auto;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+      }
+      .header {
+        background: linear-gradient(to right, #7f1d1d, #dc2626);
+        padding: 30px;
+        text-align: center;
+        color: white;
+      }
+      .header h1 {
+        margin: 0;
+        font-size: 26px;
+        letter-spacing: 1px;
+      }
+      .content {
+        padding: 30px;
+      }
+      .content h2 {
+        font-size: 22px;
+        margin-bottom: 10px;
+        color: #1a1a2e;
+      }
+      .content p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin: 8px 0;
+      }
+      .details {
+        background-color: #f4f6f8;
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 20px;
+      }
+      .details p {
+        margin: 6px 0;
+        font-weight: 500;
+      }
+      .footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 14px;
+        color: #7f8c8d;
+        background-color: #fafafa;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Your Booking Has Been Cancelled</h1>
+      </div>
+
+      <div class="content">
+        <h2>Hello <%= @name %>,</h2>
+        <p>We’re sorry to inform you that your booking has been successfully cancelled.</p>
+        <p>Here are the details of the cancelled appointment:</p>
+
+        <div class="details">
+          <p><strong>Service:</strong> <%= @service %></p>
+          <p><strong>Date:</strong> <%= @date %></p>
+          <p><strong>Service Type:</strong> <%= @service_type %></p>
+          <p><strong>Price:</strong> <%= @service_type === "Home Service" ? number_to_currency(@price + 25) : number_to_currency(@price) %></p>
+        </div>
+
+        <p style="margin-top: 20px;">
+          If this was a mistake or you’d like to rebook, please don’t hesitate to contact us at veebraids.toronto@gmail.com. We’ll be happy to assist you.
+        </p>
+        <p>We hope to serve you again in the future!</p>
+        <p>– The Vee Braids Team</p>
+      </div>
+
+      <div class="footer">
+        &copy; <%= Time.now.year %> Vee Braids. All rights reserved.
+      </div>
+    </div>
+  </body>
+</html>
