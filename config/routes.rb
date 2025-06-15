@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       put "services/:id", to: "services#update"
       delete "services/:id", to: "services#destroy"
       post "services", to: "services#create"
+      put "settings", to: "sessions#update"
     end
   end
 end

@@ -1,6 +1,6 @@
 module Api 
   module V1
-    class Registrations < Devise::RegistrationsController
+    class RegistrationsController < Devise::RegistrationsController
       def create
         user = User.new(user_params)
 
@@ -11,6 +11,10 @@ module Api
           render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
         end
       end
+    end
+
+    def update 
+      p params 
     end
 
     def user_params
