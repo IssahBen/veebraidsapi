@@ -16,6 +16,10 @@ Rails.application.routes.draw do
       delete "services/:id", to: "services#destroy"
       post "services", to: "services#create"
       put "settings", to: "sessions#update"
+      devise_scope :user do
+       post 'password/forgot', to: 'passwords#create'
+      put  'password/reset',  to: 'passwords#update'
+      end
     end
   end
 end
