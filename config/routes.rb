@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  root to: proc { [200, {}, ['{"status":"API is live"}']] }, defaults: { format: :json }
   namespace :api do
     namespace :v1 do 
       post "booking", to: "bookings#create"
