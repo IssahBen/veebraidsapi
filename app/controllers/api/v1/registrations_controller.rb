@@ -10,14 +10,14 @@ module Api
           render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
         end
       end
+
+      def user_params
+        params.require(:user).permit(:email, :password, :password_confirmation)
+      end
     end
 
-    def update 
-      p params 
-    end
+   
 
-    def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation)
-    end
+   
   end
 end
