@@ -52,3 +52,5 @@ gem "devise", "~> 4.9"
 # Gemfile
 
 gem 'simple_token_authentication', '~> 1.0' # see semver.
+
+gem 'aws-sdk-s3', require: false
